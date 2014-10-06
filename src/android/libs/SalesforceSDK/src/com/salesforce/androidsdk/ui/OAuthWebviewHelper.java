@@ -497,6 +497,7 @@ public class OAuthWebviewHelper {
     	 * This step needs to happen after the account has been added by client
     	 * manager, so that the push service has all the account info it needs.
     	 */
+		/* 
     	final Context appContext = SalesforceSDKManager.getInstance().getAppContext();
     	final String pushNotificationId = BootConfig.getBootConfig(appContext).getPushNotificationClientId();
     	if (!TextUtils.isEmpty(pushNotificationId)) {
@@ -509,6 +510,7 @@ public class OAuthWebviewHelper {
             		accountOptions.communityUrl);
         	PushMessaging.register(appContext, account);
     	}
+		*/
         callback.onAccountAuthenticatorResult(extras);
     }
 
