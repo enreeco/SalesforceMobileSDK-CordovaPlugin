@@ -94,7 +94,13 @@ public class SalesforceIceCreamWebViewClient extends IceCreamCordovaWebViewClien
 
     	// Not a localhost request
 		Uri origUri = Uri.parse(url);
-		if (!origUri.getHost().equals("localhost")) {
+        //in case of urls with form "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+        //the method triggers a null value for "getHost()"
+        String host = origUri.getHost();
+        if(host == null) host = "";
+        if(origUri!=null)
+            Log.i("SalesforceIceCreamWebViewClient.shouldInterceptRequest", "Host: ["+host+']');
+		if (!host.equals("localhost")) {
 			return null;
 		}
 			
